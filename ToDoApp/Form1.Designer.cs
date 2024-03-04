@@ -31,15 +31,19 @@
             this.addTask = new System.Windows.Forms.Button();
             this.addTaskTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tasksListBox = new System.Windows.Forms.CheckedListBox();
             this.myTasksLabel = new System.Windows.Forms.Label();
-            this.completedTasks = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tasksListView = new System.Windows.Forms.ListView();
+            this.completedTasksListView = new System.Windows.Forms.ListView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.addTaskDescription = new System.Windows.Forms.TextBox();
+            this.addTaskDueDate = new System.Windows.Forms.DateTimePicker();
+            this.addTaskDueDateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addTask
             // 
-            this.addTask.Location = new System.Drawing.Point(441, 62);
+            this.addTask.Location = new System.Drawing.Point(694, 241);
             this.addTask.Margin = new System.Windows.Forms.Padding(2);
             this.addTask.Name = "addTask";
             this.addTask.Size = new System.Drawing.Size(89, 23);
@@ -50,28 +54,19 @@
             // 
             // addTaskTextBox
             // 
-            this.addTaskTextBox.Location = new System.Drawing.Point(401, 37);
+            this.addTaskTextBox.Location = new System.Drawing.Point(694, 37);
             this.addTaskTextBox.Name = "addTaskTextBox";
-            this.addTaskTextBox.Size = new System.Drawing.Size(167, 20);
+            this.addTaskTextBox.Size = new System.Drawing.Size(198, 20);
             this.addTaskTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(398, 21);
+            this.label1.Location = new System.Drawing.Point(692, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Task:";
-            // 
-            // tasksListBox
-            // 
-            this.tasksListBox.FormattingEnabled = true;
-            this.tasksListBox.Location = new System.Drawing.Point(12, 37);
-            this.tasksListBox.Name = "tasksListBox";
-            this.tasksListBox.Size = new System.Drawing.Size(292, 94);
-            this.tasksListBox.TabIndex = 3;
-            this.tasksListBox.SelectedIndexChanged += new System.EventHandler(this.tasksListBox_SelectedIndexChanged);
+            this.label1.Text = "Task Name:";
             // 
             // myTasksLabel
             // 
@@ -82,32 +77,80 @@
             this.myTasksLabel.TabIndex = 4;
             this.myTasksLabel.Text = "My Outstanding Tasks:";
             // 
-            // completedTasks
-            // 
-            this.completedTasks.FormattingEnabled = true;
-            this.completedTasks.Location = new System.Drawing.Point(12, 193);
-            this.completedTasks.Name = "completedTasks";
-            this.completedTasks.Size = new System.Drawing.Size(292, 160);
-            this.completedTasks.TabIndex = 5;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 177);
+            this.label2.Location = new System.Drawing.Point(12, 335);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Completed Tasks:";
             // 
+            // tasksListView
+            // 
+            this.tasksListView.HideSelection = false;
+            this.tasksListView.Location = new System.Drawing.Point(15, 37);
+            this.tasksListView.Name = "tasksListView";
+            this.tasksListView.Size = new System.Drawing.Size(503, 227);
+            this.tasksListView.TabIndex = 7;
+            this.tasksListView.UseCompatibleStateImageBehavior = false;
+            this.tasksListView.SelectedIndexChanged += new System.EventHandler(this.tasksListView_SelectedIndexChanged);
+            // 
+            // completedTasksListView
+            // 
+            this.completedTasksListView.HideSelection = false;
+            this.completedTasksListView.Location = new System.Drawing.Point(15, 351);
+            this.completedTasksListView.Name = "completedTasksListView";
+            this.completedTasksListView.Size = new System.Drawing.Size(503, 176);
+            this.completedTasksListView.TabIndex = 8;
+            this.completedTasksListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(692, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Description:";
+            // 
+            // addTaskDescription
+            // 
+            this.addTaskDescription.Location = new System.Drawing.Point(695, 89);
+            this.addTaskDescription.Multiline = true;
+            this.addTaskDescription.Name = "addTaskDescription";
+            this.addTaskDescription.Size = new System.Drawing.Size(197, 76);
+            this.addTaskDescription.TabIndex = 10;
+            // 
+            // addTaskDueDate
+            // 
+            this.addTaskDueDate.Location = new System.Drawing.Point(694, 200);
+            this.addTaskDueDate.Name = "addTaskDueDate";
+            this.addTaskDueDate.Size = new System.Drawing.Size(198, 20);
+            this.addTaskDueDate.TabIndex = 11;
+            // 
+            // addTaskDueDateLabel
+            // 
+            this.addTaskDueDateLabel.AutoSize = true;
+            this.addTaskDueDateLabel.Location = new System.Drawing.Point(695, 181);
+            this.addTaskDueDateLabel.Name = "addTaskDueDateLabel";
+            this.addTaskDueDateLabel.Size = new System.Drawing.Size(56, 13);
+            this.addTaskDueDateLabel.TabIndex = 12;
+            this.addTaskDueDateLabel.Text = "Due Date:";
+            // 
             // ToDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(925, 539);
+            this.Controls.Add(this.addTaskDueDateLabel);
+            this.Controls.Add(this.addTaskDueDate);
+            this.Controls.Add(this.addTaskDescription);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.completedTasksListView);
+            this.Controls.Add(this.tasksListView);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.completedTasks);
             this.Controls.Add(this.myTasksLabel);
-            this.Controls.Add(this.tasksListBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addTaskTextBox);
             this.Controls.Add(this.addTask);
@@ -124,10 +167,14 @@
         private System.Windows.Forms.Button addTask;
         private System.Windows.Forms.TextBox addTaskTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox tasksListBox;
         private System.Windows.Forms.Label myTasksLabel;
-        private System.Windows.Forms.ListBox completedTasks;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView tasksListView;
+        private System.Windows.Forms.ListView completedTasksListView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox addTaskDescription;
+        private System.Windows.Forms.DateTimePicker addTaskDueDate;
+        private System.Windows.Forms.Label addTaskDueDateLabel;
     }
 }
 

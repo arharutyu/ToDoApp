@@ -12,11 +12,13 @@ namespace ToDoApp
         public string name { get; set; }
         public string description { get; set; }
         public bool completed { get; set; }
-        //public DateTime dueDate { get; set; }
-    
+        public DateTime dueDate { get; set; }
+        public DateTime completedDate { get; set; }
+
         public void CompleteTask()
         {
             completed = true;
+            completedDate = DateTime.Now;
         }
     }
 }

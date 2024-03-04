@@ -9,5 +9,12 @@ namespace ToDoApp
     internal class Schedule
     {
         public List<MyTask> tasks = new List<MyTask>();
+        public List<MyTask> completedTasks { get; set; }
+
+        public Schedule()
+        {
+            tasks = new List<MyTask>();
+            completedTasks = new List<MyTask>();
+        }
     }
 }
