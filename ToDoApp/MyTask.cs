@@ -20,5 +20,12 @@ namespace ToDoApp
             completed = true;
             completedDate = DateTime.Now;
         }
+
+        public bool isOverdue()
+        {
+            return (dueDate < DateTime.Today);
+        }
+
+        
     }
 }
