@@ -9,12 +9,22 @@ namespace ToDoApp
     internal class Schedule
     {
         public List<MyTask> tasks = new List<MyTask>();
-        public List<MyTask> completedTasks { get; set; }
 
         public Schedule()
         {
             tasks = new List<MyTask>();
-            completedTasks = new List<MyTask>();
+        }
+
+        public List<MyTask> completedTasks()
+        {
+            return this.tasks.Where(task => task.completed).ToList<MyTask>();
+        }
+
+        public List<MyTask> sortedOutstandingTasks()
+        {
+            var sortedTasks = this.tasks.Where(task => !task.completed)
+                                      .OrderBy(task => task.dueDate);
+            return sortedTasks.ToList<MyTask>();
         }
     }
 }
