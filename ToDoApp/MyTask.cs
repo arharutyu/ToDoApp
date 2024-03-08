@@ -13,12 +13,18 @@ namespace ToDoApp
         public string description { get; set; }
         public bool completed { get; set; }
         public DateTime dueDate { get; set; }
-        public DateTime completedDate { get; set; }
+        public DateTime? completedDate { get; set; }
 
         public void CompleteTask()
         {
             completed = true;
             completedDate = DateTime.Now;
+        }
+
+        public void UnCompleteTask()
+        {
+            completed = false;
+            completedDate = null;
         }
 
         public bool isOverdue()
