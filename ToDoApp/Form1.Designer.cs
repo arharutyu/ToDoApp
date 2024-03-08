@@ -46,6 +46,8 @@
             this.tasksDueTodayCountDisplay = new System.Windows.Forms.TextBox();
             this.oustandingTasksCountDisplay = new System.Windows.Forms.TextBox();
             this.allDoneText = new System.Windows.Forms.TextBox();
+            this.deleteTaskButton = new System.Windows.Forms.Button();
+            this.revertToOutstandingTask = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -119,7 +121,7 @@
             // 
             this.completedTasksListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.completedTasksListView.Enabled = false;
+            this.completedTasksListView.CheckBoxes = true;
             this.completedTasksListView.HideSelection = false;
             this.completedTasksListView.Location = new System.Drawing.Point(20, 618);
             this.completedTasksListView.Margin = new System.Windows.Forms.Padding(4);
@@ -249,12 +251,34 @@
             this.allDoneText.Text = "Yay! You\'re all done :)";
             this.allDoneText.Visible = false;
             // 
+            // deleteTaskButton
+            // 
+            this.deleteTaskButton.Location = new System.Drawing.Point(210, 517);
+            this.deleteTaskButton.Name = "deleteTaskButton";
+            this.deleteTaskButton.Size = new System.Drawing.Size(171, 31);
+            this.deleteTaskButton.TabIndex = 19;
+            this.deleteTaskButton.Text = "Delete Task";
+            this.deleteTaskButton.UseVisualStyleBackColor = true;
+            this.deleteTaskButton.Click += new System.EventHandler(this.deleteTaskButton_Click);
+            // 
+            // revertToOutstandingTask
+            // 
+            this.revertToOutstandingTask.Location = new System.Drawing.Point(20, 841);
+            this.revertToOutstandingTask.Name = "revertToOutstandingTask";
+            this.revertToOutstandingTask.Size = new System.Drawing.Size(174, 58);
+            this.revertToOutstandingTask.TabIndex = 20;
+            this.revertToOutstandingTask.Text = "Revert Task To Incomplete";
+            this.revertToOutstandingTask.UseVisualStyleBackColor = true;
+            this.revertToOutstandingTask.Click += new System.EventHandler(this.revertToOutstandingTask_Click);
+            // 
             // ToDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1440, 922);
+            this.Controls.Add(this.revertToOutstandingTask);
+            this.Controls.Add(this.deleteTaskButton);
             this.Controls.Add(this.allDoneText);
             this.Controls.Add(this.oustandingTasksCountDisplay);
             this.Controls.Add(this.tasksDueTodayCountDisplay);
@@ -296,6 +320,8 @@
         private System.Windows.Forms.TextBox tasksDueTodayCountDisplay;
         private System.Windows.Forms.TextBox oustandingTasksCountDisplay;
         private System.Windows.Forms.TextBox allDoneText;
+        private System.Windows.Forms.Button deleteTaskButton;
+        private System.Windows.Forms.Button revertToOutstandingTask;
     }
 }
 
