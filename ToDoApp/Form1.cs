@@ -34,6 +34,8 @@ namespace ToDoApp
             completedTasksListView.Columns.Add("Description", 200);
             completedTasksListView.Columns.Add("Due Date", 100);
             completedTasksListView.Columns.Add("Completed Date", 100);
+
+            UpdateDisplayOutstandingAndDueTodayTasksCount();
         }
 
         private void addTask_Click(object sender, EventArgs e)
@@ -93,6 +95,24 @@ namespace ToDoApp
                 item.SubItems.Add(task.completedDate.ToString("dd-MM-yyyy"));
                 completedTasksListView.Items.Add(item);
             }
+
+            UpdateDisplayOutstandingAndDueTodayTasksCount();
+        }
+
+        private void UpdateDisplayOutstandingAndDueTodayTasksCount()
+        {
+            var outstandingTasks = mySchedule.tasks.Where(task => !task.completed).Count();
+            var tasksDueToday = mySchedule.tasks.Where(task => (task.dueDate.Date ==  DateTime.Today) && (!task.completed)).Count();
+            tasksDueTodayCountDisplay.Text = "You have " + tasksDueToday + " tasks due today.";
+            oustandingTasksCountDisplay.Text = "You have " + outstandingTasks + " oustanding tasks.";
+            if (outstandingTasks == 0)
+            {
+                allDoneText.Visible = true;
+            } 
+            else
+            {
+                allDoneText.Visible = false;
+            }
         }
 
         private void markComplete_Click(object sender, EventArgs e)
@@ -105,6 +125,7 @@ namespace ToDoApp
                 checkedTask.CompleteTask();
 
                 UpdateTasksListView();
+                UpdateDisplayOutstandingAndDueTodayTasksCount();
             }
         }
     }

@@ -43,6 +43,9 @@
             this.markComplete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tasksDueTodayCountDisplay = new System.Windows.Forms.TextBox();
+            this.oustandingTasksCountDisplay = new System.Windows.Forms.TextBox();
+            this.allDoneText = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +82,7 @@
             // myTasksLabel
             // 
             this.myTasksLabel.AutoSize = true;
-            this.myTasksLabel.Location = new System.Drawing.Point(16, 26);
+            this.myTasksLabel.Location = new System.Drawing.Point(17, 169);
             this.myTasksLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myTasksLabel.Name = "myTasksLabel";
             this.myTasksLabel.Size = new System.Drawing.Size(143, 16);
@@ -104,11 +107,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tasksListView.CheckBoxes = true;
             this.tasksListView.HideSelection = false;
-            this.tasksListView.Location = new System.Drawing.Point(20, 46);
+            this.tasksListView.Location = new System.Drawing.Point(20, 200);
             this.tasksListView.Margin = new System.Windows.Forms.Padding(4);
             this.tasksListView.MultiSelect = false;
             this.tasksListView.Name = "tasksListView";
-            this.tasksListView.Size = new System.Drawing.Size(1033, 464);
+            this.tasksListView.Size = new System.Drawing.Size(1033, 310);
             this.tasksListView.TabIndex = 7;
             this.tasksListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -205,12 +208,56 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // tasksDueTodayCountDisplay
+            // 
+            this.tasksDueTodayCountDisplay.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tasksDueTodayCountDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tasksDueTodayCountDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tasksDueTodayCountDisplay.Location = new System.Drawing.Point(19, 26);
+            this.tasksDueTodayCountDisplay.Multiline = true;
+            this.tasksDueTodayCountDisplay.Name = "tasksDueTodayCountDisplay";
+            this.tasksDueTodayCountDisplay.ReadOnly = true;
+            this.tasksDueTodayCountDisplay.Size = new System.Drawing.Size(466, 27);
+            this.tasksDueTodayCountDisplay.TabIndex = 16;
+            this.tasksDueTodayCountDisplay.Text = "Calculating tasks due today";
+            // 
+            // oustandingTasksCountDisplay
+            // 
+            this.oustandingTasksCountDisplay.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.oustandingTasksCountDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.oustandingTasksCountDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oustandingTasksCountDisplay.Location = new System.Drawing.Point(20, 59);
+            this.oustandingTasksCountDisplay.Multiline = true;
+            this.oustandingTasksCountDisplay.Name = "oustandingTasksCountDisplay";
+            this.oustandingTasksCountDisplay.ReadOnly = true;
+            this.oustandingTasksCountDisplay.Size = new System.Drawing.Size(465, 35);
+            this.oustandingTasksCountDisplay.TabIndex = 17;
+            this.oustandingTasksCountDisplay.Text = "Calculating total oustanding tasks";
+            // 
+            // allDoneText
+            // 
+            this.allDoneText.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.allDoneText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.allDoneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allDoneText.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.allDoneText.Location = new System.Drawing.Point(19, 98);
+            this.allDoneText.Multiline = true;
+            this.allDoneText.Name = "allDoneText";
+            this.allDoneText.ReadOnly = true;
+            this.allDoneText.Size = new System.Drawing.Size(465, 35);
+            this.allDoneText.TabIndex = 18;
+            this.allDoneText.Text = "Yay! You\'re all done :)";
+            this.allDoneText.Visible = false;
+            // 
             // ToDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1440, 922);
+            this.Controls.Add(this.allDoneText);
+            this.Controls.Add(this.oustandingTasksCountDisplay);
+            this.Controls.Add(this.tasksDueTodayCountDisplay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.markComplete);
@@ -246,6 +293,9 @@
         private System.Windows.Forms.Button markComplete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tasksDueTodayCountDisplay;
+        private System.Windows.Forms.TextBox oustandingTasksCountDisplay;
+        private System.Windows.Forms.TextBox allDoneText;
     }
 }
 
