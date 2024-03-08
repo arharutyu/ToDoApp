@@ -26,6 +26,10 @@ namespace ToDoApp
             return (dueDate < DateTime.Today);
         }
 
+        public bool isDueToday()
+        {
+            return (dueDate.Date == DateTime.Today);
+        }
         
     }
 }

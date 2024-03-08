@@ -62,7 +62,11 @@ namespace ToDoApp
         private void UpdateTasksListView()
         {
             tasksListView.Items.Clear();
-            foreach (MyTask task in mySchedule.tasks.Where(task => !task.completed))
+
+            var sortedTasks = mySchedule.tasks.Where(task => !task.completed)
+                                      .OrderBy(task => task.dueDate);
+
+            foreach (MyTask task in sortedTasks)
             {
                 ListViewItem item = new ListViewItem(task.name);
                 item.SubItems.Add(task.id.ToString());
@@ -72,6 +76,9 @@ namespace ToDoApp
                 if (task.isOverdue())
                 {
                     item.ForeColor = Color.Red;
+                } else if (task.isDueToday())
+                {
+                    item.ForeColor = Color.Blue;
                 }
 
                 tasksListView.Items.Add(item);
