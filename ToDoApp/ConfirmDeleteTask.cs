@@ -10,22 +10,23 @@ using System.Windows.Forms;
 
 namespace ToDoApp
 {
-    public partial class ConfirmCompleteTask : Form
+    public partial class ConfirmDeleteTask : Form
     {
-        public ConfirmCompleteTask()
+        public ConfirmDeleteTask()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
-        private void btnCompleteTask_Click(object sender, EventArgs e)
+        private void btnCancelDelete_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Yes;
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 
-        private void btnCancelComplete_Click(object sender, EventArgs e)
+        private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.No;
+            DialogResult = DialogResult.OK;
             Close();
         }
     }

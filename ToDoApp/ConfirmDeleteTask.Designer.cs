@@ -1,6 +1,6 @@
 ﻿namespace ToDoApp
 {
-    partial class ConfirmCompleteTask
+    partial class ConfirmDeleteTask
     {
         /// <summary>
         /// Required designer variable.
@@ -30,48 +30,52 @@
         {
             this.btnCompleteTask = new System.Windows.Forms.Button();
             this.btnCancelComplete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.confirmDeleteDialogText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCompleteTask
             // 
-            this.btnCompleteTask.Location = new System.Drawing.Point(34, 37);
+            this.btnCompleteTask.Location = new System.Drawing.Point(45, 46);
+            this.btnCompleteTask.Margin = new System.Windows.Forms.Padding(4);
             this.btnCompleteTask.Name = "btnCompleteTask";
-            this.btnCompleteTask.Size = new System.Drawing.Size(92, 23);
+            this.btnCompleteTask.Size = new System.Drawing.Size(123, 28);
             this.btnCompleteTask.TabIndex = 0;
-            this.btnCompleteTask.Text = "Mark Complete";
+            this.btnCompleteTask.Text = "Delete Task(s)";
             this.btnCompleteTask.UseVisualStyleBackColor = true;
-            this.btnCompleteTask.Click += new System.EventHandler(this.btnCompleteTask_Click);
+            this.btnCompleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
             // btnCancelComplete
             // 
-            this.btnCancelComplete.Location = new System.Drawing.Point(132, 37);
+            this.btnCancelComplete.Location = new System.Drawing.Point(176, 46);
+            this.btnCancelComplete.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelComplete.Name = "btnCancelComplete";
-            this.btnCancelComplete.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelComplete.Size = new System.Drawing.Size(100, 28);
             this.btnCancelComplete.TabIndex = 1;
             this.btnCancelComplete.Text = "Cancel";
             this.btnCancelComplete.UseVisualStyleBackColor = true;
-            this.btnCancelComplete.Click += new System.EventHandler(this.btnCancelComplete_Click);
+            this.btnCancelComplete.Click += new System.EventHandler(this.btnCancelDelete_Click);
             // 
-            // label1
+            // confirmDeleteDialogText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Are you sure you want to complete this task?";
+            this.confirmDeleteDialogText.AutoSize = true;
+            this.confirmDeleteDialogText.Location = new System.Drawing.Point(16, 11);
+            this.confirmDeleteDialogText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.confirmDeleteDialogText.Name = "confirmDeleteDialogText";
+            this.confirmDeleteDialogText.Size = new System.Drawing.Size(250, 16);
+            this.confirmDeleteDialogText.TabIndex = 2;
+            this.confirmDeleteDialogText.Text = "Are you sure you want to delete this task?";
             // 
-            // ConfirmCompleteTask
+            // ConfirmDeleteTask
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 79);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(325, 97);
+            this.Controls.Add(this.confirmDeleteDialogText);
             this.Controls.Add(this.btnCancelComplete);
             this.Controls.Add(this.btnCompleteTask);
-            this.Name = "ConfirmCompleteTask";
-            this.Text = "Complete Task?";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ConfirmDeleteTask";
+            this.Text = "Delete Task?";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +85,6 @@
 
         private System.Windows.Forms.Button btnCompleteTask;
         private System.Windows.Forms.Button btnCancelComplete;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label confirmDeleteDialogText;
     }
 }
