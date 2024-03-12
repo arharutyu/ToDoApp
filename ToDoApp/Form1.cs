@@ -14,6 +14,9 @@ namespace ToDoApp
     public partial class ToDo : Form
     {
         Schedule mySchedule = new Schedule();
+        bool sortOutstandingTasksOrderAscending = true;
+        const string ascArrow = " ▲";
+        const string descArrow = " ▼";
 
         public ToDo()
         {
@@ -25,7 +28,7 @@ namespace ToDoApp
             tasksListView.Columns.Add("Task", 100);
             tasksListView.Columns.Add("Id", 0);
             tasksListView.Columns.Add("Description", 200);
-            tasksListView.Columns.Add("Due Date", 100);
+            tasksListView.Columns.Add("Due Date ▲", 100);
 
             completedTasksListView.View = View.Details;
             completedTasksListView.FullRowSelect = true;
@@ -64,7 +67,12 @@ namespace ToDoApp
         private void UpdateTasksListView()
         {
             tasksListView.Items.Clear();
-            foreach (MyTask task in mySchedule.sortedOutstandingTasks())
+
+            var sortedOutstandingTasks = sortOutstandingTasksOrderAscending
+                ? mySchedule.sortedOutstandingTasks().OrderBy(task => task.dueDate)
+                : mySchedule.sortedOutstandingTasks().OrderByDescending(task => task.dueDate);
+
+            foreach (MyTask task in sortedOutstandingTasks)
             {
                 ListViewItem item = new ListViewItem(task.name);
                 item.SubItems.Add(task.id.ToString());
@@ -188,6 +196,24 @@ namespace ToDoApp
             else
             {
                 MessageBox.Show("No tasks selected.", "Oops!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void TasksListView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == 3)
+            {
+                sortOutstandingTasksOrderAscending = !sortOutstandingTasksOrderAscending;
+                tasksListView.Columns[3].Text = tasksListView.Columns[3].Text.Substring(0, tasksListView.Columns[3].Text.Length - 2);
+                if (sortOutstandingTasksOrderAscending)
+                {
+                    tasksListView.Columns[3].Text += ascArrow;
+                }
+                else
+                {
+                    tasksListView.Columns[3].Text += descArrow;
+                }
+                UpdateTasksListView();
             }
         }
     }

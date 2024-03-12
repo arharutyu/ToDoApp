@@ -116,6 +116,7 @@
             this.tasksListView.Size = new System.Drawing.Size(1033, 310);
             this.tasksListView.TabIndex = 7;
             this.tasksListView.UseCompatibleStateImageBehavior = false;
+            this.tasksListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.TasksListView_ColumnClick);
             // 
             // completedTasksListView
             // 
