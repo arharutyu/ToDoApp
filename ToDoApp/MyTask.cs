@@ -12,6 +12,7 @@ namespace ToDoApp
         public string name { get; set; }
         public string description { get; set; }
         public bool completed { get; set; }
+        public string category { get; set; }
         public DateTime dueDate { get; set; }
         public DateTime? completedDate { get; set; }
 

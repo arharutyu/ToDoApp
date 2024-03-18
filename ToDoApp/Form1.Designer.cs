@@ -48,13 +48,15 @@
             this.allDoneText = new System.Windows.Forms.TextBox();
             this.deleteTaskButton = new System.Windows.Forms.Button();
             this.revertToOutstandingTask = new System.Windows.Forms.Button();
+            this.addTaskCategory = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // addTask
             // 
-            this.addTask.Location = new System.Drawing.Point(82, 266);
+            this.addTask.Location = new System.Drawing.Point(91, 363);
             this.addTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addTask.Name = "addTask";
             this.addTask.Size = new System.Drawing.Size(119, 28);
@@ -148,7 +150,7 @@
             this.addTaskDescription.Margin = new System.Windows.Forms.Padding(4);
             this.addTaskDescription.Multiline = true;
             this.addTaskDescription.Name = "addTaskDescription";
-            this.addTaskDescription.Size = new System.Drawing.Size(261, 93);
+            this.addTaskDescription.Size = new System.Drawing.Size(263, 93);
             this.addTaskDescription.TabIndex = 10;
             // 
             // addTaskDueDate
@@ -185,6 +187,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.addTaskCategory);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.addTaskTextBox);
             this.groupBox1.Controls.Add(this.addTaskDueDate);
@@ -196,7 +200,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(1100, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 316);
+            this.groupBox1.Size = new System.Drawing.Size(312, 396);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Task";
@@ -272,6 +276,27 @@
             this.revertToOutstandingTask.UseVisualStyleBackColor = true;
             this.revertToOutstandingTask.Click += new System.EventHandler(this.revertToOutstandingTask_Click);
             // 
+            // addTaskCategory
+            // 
+            this.addTaskCategory.FormattingEnabled = true;
+            this.addTaskCategory.Items.AddRange(new object[] {
+            "Work",
+            "School",
+            "Other"});
+            this.addTaskCategory.Location = new System.Drawing.Point(10, 296);
+            this.addTaskCategory.Name = "addTaskCategory";
+            this.addTaskCategory.Size = new System.Drawing.Size(263, 24);
+            this.addTaskCategory.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 273);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Category:";
+            // 
             // ToDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -323,6 +348,8 @@
         private System.Windows.Forms.TextBox allDoneText;
         private System.Windows.Forms.Button deleteTaskButton;
         private System.Windows.Forms.Button revertToOutstandingTask;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox addTaskCategory;
     }
 }
 

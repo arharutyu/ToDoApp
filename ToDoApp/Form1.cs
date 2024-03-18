@@ -29,6 +29,7 @@ namespace ToDoApp
             tasksListView.Columns.Add("Id", 0);
             tasksListView.Columns.Add("Description", 200);
             tasksListView.Columns.Add("Due Date ▲", 100);
+            tasksListView.Columns.Add("Category", 100);
 
             completedTasksListView.View = View.Details;
             completedTasksListView.FullRowSelect = true;
@@ -37,6 +38,7 @@ namespace ToDoApp
             completedTasksListView.Columns.Add("Description", 200);
             completedTasksListView.Columns.Add("Due Date", 100);
             completedTasksListView.Columns.Add("Completed Date", 100);
+            completedTasksListView.Columns.Add("Category", 100);
 
             UpdateDisplayOutstandingAndDueTodayTasksCount();
         }
@@ -53,6 +55,7 @@ namespace ToDoApp
             task.dueDate = taskDueDate;
             task.id = Guid.NewGuid();
             task.completed = false;
+            task.category = addTaskCategory.SelectedItem.ToString();
 
             mySchedule.tasks.Add(task);
             UpdateTasksListView();
@@ -60,6 +63,8 @@ namespace ToDoApp
             addTaskTextBox.Text = "";
             addTaskDescription.Text = "";
             addTaskDueDate.Value = DateTime.Now;
+            addTaskCategory.SelectedIndex = -1;
+            addTaskCategory.Text = "";
 
             //MessageBox.Show("Task added: " + taskText, "Task Added");
         }
@@ -78,6 +83,7 @@ namespace ToDoApp
                 item.SubItems.Add(task.id.ToString());
                 item.SubItems.Add(task.description);
                 item.SubItems.Add(task.dueDate.ToString("dd-MM-yyyy"));
+                item.SubItems.Add(task.category);
 
                 if (task.isOverdue())
                 {
@@ -99,6 +105,7 @@ namespace ToDoApp
                 item.SubItems.Add(task.description);
                 item.SubItems.Add(task.dueDate.ToString("dd-MM-yyyy"));
                 item.SubItems.Add(task.completedDate?.ToString("dd-MM-yyyy"));
+                item.SubItems.Add(task.category);
                 completedTasksListView.Items.Add(item);
             }
 
